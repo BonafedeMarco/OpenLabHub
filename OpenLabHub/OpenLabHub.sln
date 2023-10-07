@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenLabHub", "OpenLabHub\OpenLabHub\OpenLabHub.csproj", "{EDC10090-EEFF-4348-8C6A-085854CE6A49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenLabHub.Android", "OpenLabHub\OpenLabHub.Android\OpenLabHub.Android.csproj", "{7914B3D6-8126-4EA3-AF56-5643AAE26B8B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EDC10090-EEFF-4348-8C6A-085854CE6A49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDC10090-EEFF-4348-8C6A-085854CE6A49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDC10090-EEFF-4348-8C6A-085854CE6A49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDC10090-EEFF-4348-8C6A-085854CE6A49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7914B3D6-8126-4EA3-AF56-5643AAE26B8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7914B3D6-8126-4EA3-AF56-5643AAE26B8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7914B3D6-8126-4EA3-AF56-5643AAE26B8B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7914B3D6-8126-4EA3-AF56-5643AAE26B8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7914B3D6-8126-4EA3-AF56-5643AAE26B8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7914B3D6-8126-4EA3-AF56-5643AAE26B8B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {77DED344-FC1E-44B5-A182-87220B0E5BCE}
+	EndGlobalSection
+EndGlobal
