@@ -5,6 +5,6 @@ Submission for the NASA Space Apps Challenge 2023
 [A Marketplace for Open Science Projects](https://www.spaceappschallenge.org/2023/challenges/a-marketplace-for-open-science-projects/)
 
 # Developed by ["Cat.tar.gz"](https://www.spaceappschallenge.org/2023/find-a-team/cattargz/)
--Bonafede, Marco
--Casale, Matías
--Schenoni, Emmanuel
+- Bonafede, Marco
+- Casale, Matías
+- Schenoni, Emmanuel
