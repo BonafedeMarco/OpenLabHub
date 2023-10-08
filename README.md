@@ -1,4 +1,4 @@
-# OpenSciHub
+# OpenLabHub
 Submission for the NASA Space Apps Challenge 2023
 
 # Challenge
