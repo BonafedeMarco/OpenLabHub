@@ -2,40 +2,57 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com" 
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
              xmlns:Pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" 
              xmlns:customrenders="clr-namespace:OpenLabHub.CustomRenders"
              prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="OpenLabHub.Views.LoginRegisterPage">
+             x:Class="OpenLabHub.Views.LoginRegisterPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#23262f">
 
-    <Grid RowDefinitions="auto, *" VerticalOptions="FillAndExpand" RowSpacing="40">
-        <Image Background="black" Source="TinyLogo2.png" Aspect="AspectFit" VerticalOptions="Center" WidthRequest="100" HeightRequest="100" Margin="20,30,20,0"/>
+    <Grid RowDefinitions="auto, *" VerticalOptions="FillAndExpand" RowSpacing="20">
+        <Frame Padding="0" Margin="50,30,50,0" CornerRadius="30">
+            <Image Background="#fff" Source="CompanyLogo.png" Aspect="AspectFit" VerticalOptions="Center" WidthRequest="120" HeightRequest="120"/>
+        </Frame>
         <Pancake:PancakeView Grid.Row="1" CornerRadius="60,0,0,0" BackgroundColor="#f5f5f7" Padding="30,40,30,30" VerticalOptions="Fill">
             <Grid RowDefinitions="auto, auto, auto, auto, auto, auto">
-                <Label Text="Inicia Sesion" TextColor="Black" FontSize="30" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,0,0,30"/>
+                <Label Text="Sign in" TextColor="Black" FontSize="30" VerticalOptions="Center" HorizontalOptions="Center"/>
                 <Frame Grid.Row="1" CornerRadius="15" Padding="10,10,10,-5" HasShadow="False">
                     <StackLayout Spacing="-10">
-                        <Label Text="Usuario"/>
-                        <customrenders:CustomEntry x:Name="EntryUser" TextColor="Gray" FontSize="16" Margin="-4,0,0,0"/>
+                        <Label Text="User"/>
+                        <customrenders:CustomEntry x:Name="EntryUser" Text="Matias" TextColor="Gray" FontSize="16" Margin="-4,0,0,0"/>
                     </StackLayout>
                 </Frame>
                 <Frame Grid.Row="2" CornerRadius="15" Padding="10,10,10,-5" HasShadow="False">
                     <StackLayout Spacing="-10">
-                        <Label Text="Contraseña"/>
-                        <customrenders:CustomEntry x:Name="EntryPassword" IsPassword="True" TextColor="Gray" FontSize="16" Margin="-4,0,0,0" />
+                        <Label Text="Password"/>
+                        <customrenders:CustomEntry x:Name="EntryPassword" Text="1234" IsPassword="True" TextColor="Gray" FontSize="16" Margin="-4,0,0,0" />
                     </StackLayout>
                 </Frame>
                 <StackLayout Grid.Row="3" Orientation="Horizontal">
-                    <CheckBox x:Name="ChkRemember" Color="Black"/>
+                    <CheckBox x:Name="ChkRemember" Color="#23262f"/>
                     <Label Text="Recordar" VerticalOptions="Center"/>
-                    <Button Text="¿Olvidaste tu contraseña?" TextTransform="None" FontFamily="MainFontBold" FontSize="12" BackgroundColor="Transparent" HorizontalOptions="EndAndExpand"/>
+                    <Button Text="Forgot Password?" TextTransform="None" FontFamily="MainFontBold" FontSize="12" BackgroundColor="Transparent" HorizontalOptions="EndAndExpand"/>
                 </StackLayout>
                 <Grid Grid.Row="4">
-                    <Button x:Name="BtnLogin" Clicked="LoginClicked" ImageSource="ImportIconXS.png" ContentLayout="left,-64" TextTransform="None" FontFamily="MainFontRegular" Text="Ingresar" FontSize="20" HorizontalOptions="FillAndExpand" CornerRadius="10" BackgroundColor="Black" TextColor="White"/>
+                    <Button x:Name="BtnLogin" Clicked="LoginClicked" ImageSource="ImportIconXS.png" ContentLayout="left,-64" TextTransform="None" FontFamily="MainFontRegular" Text="Login" FontSize="20" HorizontalOptions="FillAndExpand" CornerRadius="10" BackgroundColor="#23262f" TextColor="White"/>
                     <ActivityIndicator x:Name="LoadingIndicator" IsVisible="False" Opacity="1" IsRunning="True" Color="White" Scale="0.7"/>
                 </Grid>
-                <StackLayout Grid.Row="5" Spacing="-10" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                    <Label Text="¿Todavia no tienes una cuenta?" VerticalOptions="Center" FontSize="14"/>
-                    <Button BackgroundColor="Transparent" Text="¡Create una!" Clicked="RegisterClicked" FontFamily="MainFontBold" FontSize="14" TextTransform="None" VerticalOptions="Center"/>
+                <Frame Grid.Row="5" Padding="10" CornerRadius="10" BorderColor="#23262f" xct:TouchEffect.AnimationDuration="200" xct:TouchEffect.PressedScale = "0.99" xct:TouchEffect.PressedOpacity="0.6" xct:TouchEffect.PressedBackgroundColor="#f5f5f7">
+                    <Grid ColumnDefinitions="auto, *" RowSpacing="15">
+                        <Image Source="ORCID" HeightRequest="30"/>
+                        <Label Grid.Column="1" HorizontalTextAlignment="Center" TextColor="#23262f" TranslationX="-20" Text="Login With ORCID" HeightRequest="30" FontSize="15" VerticalTextAlignment="Center"/>
+                    </Grid>
+                </Frame>
+                <Frame Grid.Row="6" Padding="10" CornerRadius="10" BackgroundColor="#23262f" xct:TouchEffect.AnimationDuration="200" xct:TouchEffect.PressedScale = "0.99" xct:TouchEffect.PressedOpacity="0.6" xct:TouchEffect.PressedBackgroundColor="#f5f5f7">
+                    <Grid ColumnDefinitions="auto, *" RowSpacing="15">
+                        <Image Source="UserIcon.png" HeightRequest="30"/>
+                        <Label Grid.Column="1" HorizontalTextAlignment="Center" TextColor="#fff" TranslationX="-20" Text="Sign in as a guest" HeightRequest="30" FontSize="15" VerticalTextAlignment="Center"/>
+                    </Grid>
+                </Frame>
+                <StackLayout Grid.Row="7" Spacing="-10" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Label Text="Don´t have account yet?" VerticalOptions="Center" FontSize="14"/>
+                    <Button BackgroundColor="Transparent" Text="¡Create one!" Clicked="RegisterClicked" FontFamily="MainFontBold" FontSize="14" TextTransform="None" VerticalOptions="Center"/>
                 </StackLayout>
             </Grid>
         </Pancake:PancakeView>

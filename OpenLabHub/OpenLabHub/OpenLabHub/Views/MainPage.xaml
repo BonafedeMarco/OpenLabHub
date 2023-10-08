@@ -1,11 +1,99 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:Pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" 
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
+             xmlns:customrenders="clr-namespace:OpenLabHub.CustomRenders"
              x:Class="OpenLabHub.Views.MainPage"
+             BackgroundColor="#23262f"
              Title="{Binding Title}">
 
-    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-        <Label Text="Welcome to Xamarin Forms and Prism!" />
-    </StackLayout>
+    <NavigationPage.TitleView>
+        <Image HeightRequest="35" Source="CompanyLogo.png" HorizontalOptions="Start"/>
+    </NavigationPage.TitleView>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="LupeIcon.png" Order="Primary" Priority="0" Clicked="LupeCliecked"/>
+    </ContentPage.ToolbarItems>
+
+    <Grid>
+        <StackLayout BackgroundColor="#23262f">
+            <Pancake:PancakeView x:Name="Buscador" CornerRadius="10" Margin="10,0" VerticalOptions="Start" Border="{Pancake:BorderMarkup Color=White, Thickness='2'}" BackgroundColor="Black" IsVisible="false" Opacity="0">
+                <Grid ColumnDefinitions="auto, auto, *" ColumnSpacing="0" BackgroundColor="#393c44" Padding="10,0">
+                    <Image Source="LupeIcon.png" HeightRequest="20" HorizontalOptions="Center"/>
+                    <BoxView Grid.Column="1" WidthRequest="1" Color="White" TranslationX="10"/>
+                    <customrenders:CustomSearchBar TranslationX="10" Grid.Column="2" x:Name="entryBusqueda" Placeholder="Name / Description / Tag" PlaceholderColor="Gray" TextColor="White" CancelButtonColor="Red" FontSize="13" TextChanged="Buscar"/>
+                </Grid>
+            </Pancake:PancakeView>
+            <xct:TabView Padding="0" TabStripPlacement="Top" TabStripHeight="20" TabIndicatorColor="White" TabContentBackgroundColor="#23262f">
+                <xct:TabView.TabStripBackgroundView>
+                    <BoxView Color="#23262f"/>
+                </xct:TabView.TabStripBackgroundView>
+                <xct:TabViewItem x:Name="TabEmpresas" Icon="Customers.png" Text="Project Explorer" TextColor="White" TextColorSelected="White" FontSize="12">
+                    <CollectionView x:Name="ListaUsuarios" Margin="3" EmptyView="No data" ItemsSource="{Binding User}" VerticalOptions="CenterAndExpand" VerticalScrollBarVisibility="Never">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Vertical" ItemSpacing="5"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame CornerRadius="10" Padding="10" HasShadow="False" BackgroundColor="#393c44" HorizontalOptions="Center">
+                                    <Grid RowDefinitions="auto, auto" VerticalOptions="Center">
+                                        <Grid ColumnDefinitions="auto, *" ColumnSpacing="20" Padding="0">
+                                            <Frame Padding="2" CornerRadius="90" BackgroundColor="White" Scale="1.2" VerticalOptions="Center">
+                                                <Image Source="{Binding ImgUrl}" Aspect="AspectFit" HeightRequest="55"/>
+                                            </Frame>
+                                            <Grid Grid.Column="1" ColumnDefinitions="auto, auto" RowDefinitions="auto, auto" VerticalOptions="Center">
+                                                <Label Text="{Binding username}" TextColor="White" FontSize="15" FontAttributes="Bold"/>
+                                                <Label Grid.Row="1" Text="{Binding description}" TextColor="White" FontSize="12" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                            </Grid>
+                                        </Grid>
+                                        <StackLayout Grid.Row="1" Spacing="0">
+                                            <BoxView HeightRequest="1" Color="White" Margin="0,10"/>
+                                            <Grid ColumnDefinitions="*, auto" ColumnSpacing="5">
+                                                <CollectionView x:Name="ListaTagsUsuario" HeightRequest="30" ItemsSource="{Binding skills}" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" VerticalScrollBarVisibility="Never">
+                                                    <CollectionView.ItemsLayout>
+                                                        <LinearItemsLayout Orientation="Horizontal" ItemSpacing="5"/>
+                                                    </CollectionView.ItemsLayout>
+                                                    <CollectionView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Pancake:PancakeView CornerRadius="10" Padding="7,5" BackgroundColor="#a3c7f6" Border="{Pancake:BorderMarkup Color=#1a73e8, Thickness='4'}">
+                                                                <Grid ColumnDefinitions="auto, *" ColumnSpacing="5" HorizontalOptions="Center">
+                                                                    <Image Source="TagIcon.png" Aspect="AspectFit" WidthRequest="20"/>
+                                                                    <Label Grid.Column="1" Text="{Binding name}" FontAttributes="Bold" TextColor="#1a73e8" VerticalOptions="Center"/>
+                                                                </Grid>
+                                                            </Pancake:PancakeView>
+                                                        </DataTemplate>
+                                                    </CollectionView.ItemTemplate>
+                                                </CollectionView>
+                                                <Pancake:PancakeView HorizontalOptions="EndAndExpand" CornerRadius="10" Padding="7,5" BackgroundColor="#c3c3c3" Border="{Pancake:BorderMarkup Color=#455a64, Thickness='4'}" xct:TouchEffect.AnimationDuration="100" xct:TouchEffect.PressedOpacity="0.8" xct:TouchEffect.PressedBackgroundColor="#c3c3c3">
+                                                    <Pancake:PancakeView.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="MoreTapped" />
+                                                    </Pancake:PancakeView.GestureRecognizers>
+                                                    <Grid ColumnDefinitions="auto, *" ColumnSpacing="5" HorizontalOptions="Center">
+                                                        <Image Source="MoreIcon.png" Aspect="AspectFit" WidthRequest="20"/>
+                                                        <Label Grid.Column="1" Text="Mas" FontAttributes="Bold" TextColor="#455a64" VerticalOptions="Center"/>
+                                                    </Grid>
+                                                </Pancake:PancakeView>
+                                            </Grid>
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </xct:TabViewItem>
+                <xct:TabViewItem x:Name="TabClientesVisitados" Icon="Visited.png" Text="Active Projects" TextColor="White" TextColorSelected="White" FontSize="12">
+                    <Frame Margin="5,1" Padding="0" Grid.Row="1" BackgroundColor="Transparent" CornerRadius="20">
+                        <Frame CornerRadius="20" Margin="10,0" BackgroundColor="#393c44" VerticalOptions="Center">
+                            <StackLayout Orientation="Vertical" Spacing="10">
+                                <Label Text="It seems like you are not enrolled in any project yet" TextColor="White" HorizontalTextAlignment="Center"/>
+                                <Button Text="Find Projects!" Clicked="FindClicked" BackgroundColor="White" TextTransform="None" CornerRadius="20" Margin="20,0"/>
+
+                            </StackLayout>
+                        </Frame>
+                    </Frame>
+                </xct:TabViewItem>
+            </xct:TabView>
+        </StackLayout>
+    </Grid>
 
 </ContentPage>

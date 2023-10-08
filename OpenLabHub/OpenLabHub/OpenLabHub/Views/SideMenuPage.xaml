@@ -23,7 +23,7 @@
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="ProfileClicked"/>
                                 </Frame.GestureRecognizers>
-                                <Label Text="Ver Perfil" TextColor="White" FontSize="12" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold"/>
+                                <Label Text="View Profile" TextColor="White" FontSize="12" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold"/>
                             </Frame>
                         </Grid>
                     </Grid>
@@ -35,7 +35,7 @@
                             <Frame Padding="5" CornerRadius="20" BackgroundColor="#23262f" HeightRequest="25" Margin="0,0,10,0" HasShadow="False">
                                 <Image Source="HomeIcon.png" Aspect="AspectFit" Scale="0.9"/>
                             </Frame>
-                            <Label Grid.Column="1" Text="Pagina Principal" TextColor="White" FontSize="15" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Center"/>
+                            <Label Grid.Column="1" Text="Main Page" TextColor="White" FontSize="15" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Center"/>
                             <Image Grid.Column="2" Source="ChevronRight.png" Aspect="AspectFit" HeightRequest="15" HorizontalOptions="End"/>
                             <Grid.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="HomeClicked"/>
@@ -45,9 +45,21 @@
                     <Frame Padding="0" CornerRadius="30" HasShadow="False" BackgroundColor="#393c44">
                         <Grid ColumnDefinitions="auto, *, auto" Padding="10" xct:TouchEffect.NormalBackgroundColor="Transparent" xct:TouchEffect.AnimationDuration="200" xct:TouchEffect.PressedScale = "0.99" xct:TouchEffect.PressedOpacity="0.6" xct:TouchEffect.PressedBackgroundColor="#1a1a1a">
                             <Frame Padding="5" CornerRadius="20" BackgroundColor="#23262f" HeightRequest="25" Margin="0,0,10,0" HasShadow="False">
+                                <Image Source="ProjectIcon.png" Aspect="AspectFit" HeightRequest="20"/>
+                            </Frame>
+                            <Label Grid.Column="1" Text="My Proyects" TextColor="White" FontSize="15" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Center"/>
+                            <Image Grid.Column="2" Source="ChevronRight.png" Aspect="AspectFit" HeightRequest="15" HorizontalOptions="End"/>
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="ProjectsClicked"/>
+                            </Grid.GestureRecognizers>
+                        </Grid>
+                    </Frame>
+                    <Frame Padding="0" CornerRadius="30" HasShadow="False" BackgroundColor="#393c44">
+                        <Grid ColumnDefinitions="auto, *, auto" Padding="10" xct:TouchEffect.NormalBackgroundColor="Transparent" xct:TouchEffect.AnimationDuration="200" xct:TouchEffect.PressedScale = "0.99" xct:TouchEffect.PressedOpacity="0.6" xct:TouchEffect.PressedBackgroundColor="#1a1a1a">
+                            <Frame Padding="5" CornerRadius="20" BackgroundColor="#23262f" HeightRequest="25" Margin="0,0,10,0" HasShadow="False">
                                 <Image Source="SettingsIcon.png" Aspect="AspectFit"/>
                             </Frame>
-                            <Label Grid.Column="1" Text="Configuracion" TextColor="White" FontSize="15" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Center"/>
+                            <Label Grid.Column="1" Text="Configuration" TextColor="White" FontSize="15" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Center"/>
                             <Image Grid.Column="2" Source="ChevronRight.png" Aspect="AspectFit" HeightRequest="15" HorizontalOptions="End"/>
                             <Grid.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="SettingsClicked"/>
@@ -60,7 +72,7 @@
                             <Frame Padding="5" CornerRadius="20" BackgroundColor="#23262f" HeightRequest="25" Margin="0,0,10,0" HasShadow="False">
                                 <Image Source="LogOutIcon.png" Aspect="AspectFit" Scale="0.9"/>
                             </Frame>
-                            <Label Grid.Column="1" Text="Cerrar Sesión" TextColor="White" FontSize="15" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Center"/>
+                            <Label Grid.Column="1" Text="Log Out" TextColor="White" FontSize="15" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Center"/>
                             <Image Grid.Column="2" Source="ChevronRight.png" Aspect="AspectFit" HeightRequest="15" HorizontalOptions="End"/>
                             <Grid.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="LogOutClicked" />

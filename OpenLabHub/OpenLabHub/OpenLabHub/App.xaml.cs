@@ -21,7 +21,7 @@ namespace OpenLabHub
             if (VersionTracking.IsFirstLaunchForCurrentVersion || VersionTracking.IsFirstLaunchEver)
                 await NavigationService.NavigateAsync("/OnBoardingPage", useModalNavigation: false, animated: true);
             else
-                await NavigationService.NavigateAsync("NavigationPage/SideMenuPage", useModalNavigation: false, animated: true);
+                await NavigationService.NavigateAsync("NavigationPage/LoginRegisterPage", useModalNavigation: false, animated: true);
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)

@@ -3,6 +3,77 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="OpenLabHub.Views.ProjectDetailsPage">
-  
+             x:Class="OpenLabHub.Views.ProjectDetailsPage"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit" xmlns:Pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#23262f">
+
+    <Grid RowDefinitions="auto, *" VerticalOptions="Fill" HorizontalOptions="Fill">
+        <Grid ColumnDefinitions="auto, auto" HeightRequest="56" Padding="10">
+            <Frame Padding="20" CornerRadius="20" HorizontalOptions="Start" HeightRequest="25" BackgroundColor="#393c44"  Margin="0" HasShadow="False" xct:TouchEffect.NormalBackgroundColor="#393c44" xct:TouchEffect.AnimationDuration="200" xct:TouchEffect.PressedScale = "0.99" xct:TouchEffect.PressedOpacity="0.6">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="BackClicked"/>
+                </Frame.GestureRecognizers>
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="ChevronRight.png" Rotation="180" Aspect="AspectFit" Scale="0.9"/>
+                </StackLayout>
+            </Frame>
+            <Label Grid.Column="1" TranslationX="10" VerticalOptions="Center" Text="Project Info" TextColor="White" FontSize="25" FontAttributes="Bold" />
+        </Grid>
+        <Frame Grid.Row="1" CornerRadius="20" Padding="0,0,0,20" Margin="10" BackgroundColor="Transparent">
+            <ScrollView Grid.Row="1">
+                <StackLayout Spacing="10">
+                    <Frame CornerRadius="20" Padding="5" HasShadow="False" BackgroundColor="#393c44">
+                        <Frame CornerRadius="20" Padding="0">
+                            <Image x:Name="ImgProject"/>
+                        </Frame>
+                    </Frame>
+                    <Frame CornerRadius="20" HasShadow="False" BackgroundColor="#393c44">
+                        <Grid ColumnDefinitions="auto, *" ColumnSpacing="20" Padding="0">
+                            <Frame Padding="2" CornerRadius="90" BackgroundColor="White" Scale="1.2" VerticalOptions="Center">
+                                <Image x:Name="ImgUserPic" Aspect="AspectFit" HeightRequest="55"/>
+                            </Frame>
+                            <Grid Grid.Column="1" ColumnDefinitions="auto, auto" RowDefinitions="auto, auto" VerticalOptions="Center">
+                                <Label x:Name="LblUsername" TextColor="White" FontSize="15" FontAttributes="Bold"/>
+                                <Label x:Name="LblShortDesc" Grid.Row="1" TextColor="White" FontSize="12" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Grid>
+                        </Grid>
+                    </Frame>
+                    <Frame CornerRadius="20" HasShadow="False" BackgroundColor="#393c44">
+                        <StackLayout>
+                            <Label Text="Description" FontAttributes="Bold" TextColor="white" FontSize="20"/>
+                            <Label x:Name="LblLongDesc" TextColor="white" />
+                        </StackLayout>
+                    </Frame>
+                    <Frame CornerRadius="20" HasShadow="False" BackgroundColor="#393c44">
+                        <StackLayout>
+                            <Label Text="Tags" FontAttributes="Bold" TextColor="white" FontSize="20"/>
+                            <CollectionView x:Name="CollectionSkills" HeightRequest="75" ItemsSource="{Binding skillsComplete}" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" VerticalScrollBarVisibility="Never">
+                                <CollectionView.ItemsLayout>
+                                    <GridItemsLayout Orientation="Vertical" Span="3" HorizontalItemSpacing="5" VerticalItemSpacing="5" />
+                                </CollectionView.ItemsLayout>
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Pancake:PancakeView CornerRadius="10" Padding="7,5" BackgroundColor="#a3c7f6" Border="{Pancake:BorderMarkup Color=#1a73e8, Thickness='4'}">
+                                            <Grid ColumnDefinitions="auto, *" ColumnSpacing="5" HorizontalOptions="Center">
+                                                <Image Source="TagIcon.png" Aspect="AspectFit" WidthRequest="20"/>
+                                                <Label Grid.Column="1" Text="{Binding name}" FontAttributes="Bold" TextColor="#1a73e8" VerticalOptions="Center"/>
+                                            </Grid>
+                                        </Pancake:PancakeView>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </StackLayout>
+                    </Frame>
+                    <StackLayout Orientation="Horizontal" Margin="10,0">
+                        <Image Source="InfoIcon.png" WidthRequest="30" HeightRequest="30" VerticalOptions="Center"/>
+                        <Label Text="Request More info" TextDecorations="Underline" TextColor="White" FontAttributes="Bold" VerticalOptions="Center"/>
+                        <Button Text="Request to Join!" Clicked="JoinClicked" x:Name="JoinBtn" BackgroundColor="White" TextTransform="None" HorizontalOptions="EndAndExpand" CornerRadius="20"/>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </Frame>
+    </Grid>
+
+
 </ContentPage>
