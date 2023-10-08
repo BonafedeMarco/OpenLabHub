@@ -5,30 +5,34 @@
                   xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
                   xmlns:local="clr-namespace:OpenLabHub.Views"
                   prism:ViewModelLocator.AutowireViewModel="True"
-                  x:Class="OpenLabHub.Views.SideMenuPage">
+                  x:Class="OpenLabHub.Views.SideMenuPage"
+                  BackgroundColor="#23262f"
+                  NavigationPage.HasNavigationBar="False">
 
     <MasterDetailPage.Master>
-        <ContentPage Title="Menu" BackgroundColor="Black">
+        <ContentPage Title="Menu" BackgroundColor="#23262f">
             <Grid RowDefinitions="auto, auto, *" Padding="10" RowSpacing="10" VerticalOptions="FillAndExpand">
-                <Grid ColumnDefinitions="auto, *" ColumnSpacing="20" Padding="10">
-                    <Frame Padding="5" CornerRadius="90" BackgroundColor="#1b222d" Scale="1.2" VerticalOptions="Center">
-                        <xct:AvatarView x:Name="LblAvatar" Text="MC" Color="White" TextColor="Black" BackgroundColor="Transparent"/>
-                    </Frame>
-                    <Grid Grid.Column="1" ColumnDefinitions="auto, auto" RowDefinitions="auto, auto">
-                        <Label Text="Matias Casale" TextColor="White" FontSize="15" FontFamily="MainFontBold"/>
-                        <Frame Grid.Row="1" Padding="0" CornerRadius="20" BackgroundColor="#1b222d" HeightRequest="25" Margin="0,0,10,0"  xct:TouchEffect.NormalBackgroundColor="#1b222d" xct:TouchEffect.AnimationDuration="200" xct:TouchEffect.PressedScale = "0.99" xct:TouchEffect.PressedOpacity="0.6" xct:TouchEffect.PressedBackgroundColor="#1b222d">
-                            <Frame.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="ProfileClicked"/>
-                            </Frame.GestureRecognizers>
-                            <Label Text="Ver Perfil" TextColor="White" FontSize="12" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold"/>
+                <Frame Padding="0" CornerRadius="30" HasShadow="False" BackgroundColor="#393c44">
+                    <Grid ColumnDefinitions="auto, *" ColumnSpacing="20" Padding="10">
+                        <Frame Padding="5" CornerRadius="90" BackgroundColor="#23262f" Scale="1.2" VerticalOptions="Center">
+                            <xct:AvatarView x:Name="LblAvatar" Text="MC" Color="White" TextColor="Black" BackgroundColor="Transparent"/>
                         </Frame>
+                        <Grid Grid.Column="1" ColumnDefinitions="auto, auto" RowDefinitions="auto, auto">
+                            <Label Text="Matias Casale" TextColor="White" FontSize="15" FontFamily="MainFontBold"/>
+                            <Frame Grid.Row="1" Padding="0" CornerRadius="20" BackgroundColor="#23262f" HeightRequest="25" Margin="0,0,10,0"  xct:TouchEffect.NormalBackgroundColor="#1b222d" xct:TouchEffect.AnimationDuration="200" xct:TouchEffect.PressedScale = "0.99" xct:TouchEffect.PressedOpacity="0.6" xct:TouchEffect.PressedBackgroundColor="#1b222d">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="ProfileClicked"/>
+                                </Frame.GestureRecognizers>
+                                <Label Text="Ver Perfil" TextColor="White" FontSize="12" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold"/>
+                            </Frame>
+                        </Grid>
                     </Grid>
-                </Grid>
+                </Frame>
                 <BoxView Grid.Row="1" HeightRequest="1" Color="White" Margin="10,0" />
                 <StackLayout Grid.Row="2" Spacing="10" VerticalOptions="FillAndExpand">
-                    <Frame Padding="0" CornerRadius="30" HasShadow="False" BackgroundColor="Black">
+                    <Frame Padding="0" CornerRadius="30" HasShadow="False" BackgroundColor="#393c44">
                         <Grid ColumnDefinitions="auto, *, auto" Padding="10" xct:TouchEffect.NormalBackgroundColor="Transparent" xct:TouchEffect.AnimationDuration="200" xct:TouchEffect.PressedScale = "0.99" xct:TouchEffect.PressedOpacity="0.6" xct:TouchEffect.PressedBackgroundColor="#1a1a1a">
-                            <Frame Padding="5" CornerRadius="20" BackgroundColor="#1b222d" HeightRequest="25" Margin="0,0,10,0">
+                            <Frame Padding="5" CornerRadius="20" BackgroundColor="#23262f" HeightRequest="25" Margin="0,0,10,0" HasShadow="False">
                                 <Image Source="HomeIcon.png" Aspect="AspectFit" Scale="0.9"/>
                             </Frame>
                             <Label Grid.Column="1" Text="Pagina Principal" TextColor="White" FontSize="15" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Center"/>
@@ -38,9 +42,9 @@
                             </Grid.GestureRecognizers>
                         </Grid>
                     </Frame>
-                    <Frame Padding="0" CornerRadius="30" HasShadow="False" BackgroundColor="Black">
+                    <Frame Padding="0" CornerRadius="30" HasShadow="False" BackgroundColor="#393c44">
                         <Grid ColumnDefinitions="auto, *, auto" Padding="10" xct:TouchEffect.NormalBackgroundColor="Transparent" xct:TouchEffect.AnimationDuration="200" xct:TouchEffect.PressedScale = "0.99" xct:TouchEffect.PressedOpacity="0.6" xct:TouchEffect.PressedBackgroundColor="#1a1a1a">
-                            <Frame Padding="5" CornerRadius="20" BackgroundColor="#1b222d" HeightRequest="25" Margin="0,0,10,0">
+                            <Frame Padding="5" CornerRadius="20" BackgroundColor="#23262f" HeightRequest="25" Margin="0,0,10,0" HasShadow="False">
                                 <Image Source="SettingsIcon.png" Aspect="AspectFit"/>
                             </Frame>
                             <Label Grid.Column="1" Text="Configuracion" TextColor="White" FontSize="15" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Center"/>
@@ -51,9 +55,9 @@
                         </Grid>
                     </Frame>
                     <BoxView HeightRequest="1" Color="White" Margin="10,0" VerticalOptions="EndAndExpand"/>
-                    <Frame Padding="0" CornerRadius="30" HasShadow="False" BackgroundColor="Black" VerticalOptions="End">
+                    <Frame Padding="0" CornerRadius="30" HasShadow="False" BackgroundColor="#393c44" VerticalOptions="End">
                         <Grid ColumnDefinitions="auto, *, auto" Padding="10" xct:TouchEffect.NormalBackgroundColor="Transparent" xct:TouchEffect.AnimationDuration="200" xct:TouchEffect.PressedScale = "0.99" xct:TouchEffect.PressedOpacity="0.6" xct:TouchEffect.PressedBackgroundColor="#1a1a1a">
-                            <Frame Padding="5" CornerRadius="20" BackgroundColor="#1b222d" HeightRequest="25" Margin="0,0,10,0">
+                            <Frame Padding="5" CornerRadius="20" BackgroundColor="#23262f" HeightRequest="25" Margin="0,0,10,0" HasShadow="False">
                                 <Image Source="LogOutIcon.png" Aspect="AspectFit" Scale="0.9"/>
                             </Frame>
                             <Label Grid.Column="1" Text="Cerrar Sesión" TextColor="White" FontSize="15" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="Center"/>

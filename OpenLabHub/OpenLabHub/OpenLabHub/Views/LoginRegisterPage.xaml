@@ -1,8 +1,51 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:prism="http://prismlibrary.com"
+             xmlns:prism="http://prismlibrary.com" 
+             xmlns:Pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" 
+             xmlns:customrenders="clr-namespace:OpenLabHub.CustomRenders"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="OpenLabHub.Views.LoginRegisterPage">
-  
+
+    <Grid RowDefinitions="auto, *" VerticalOptions="FillAndExpand" RowSpacing="40">
+        <Image Background="black" Source="TinyLogo2.png" Aspect="AspectFit" VerticalOptions="Center" WidthRequest="100" HeightRequest="100" Margin="20,30,20,0"/>
+        <Pancake:PancakeView Grid.Row="1" CornerRadius="60,0,0,0" BackgroundColor="#f5f5f7" Padding="30,40,30,30" VerticalOptions="Fill">
+            <Grid RowDefinitions="auto, auto, auto, auto, auto, auto">
+                <Label Text="Inicia Sesion" TextColor="Black" FontSize="30" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,0,0,30"/>
+                <Frame Grid.Row="1" CornerRadius="15" Padding="10,10,10,-5" HasShadow="False">
+                    <StackLayout Spacing="-10">
+                        <Label Text="Usuario"/>
+                        <customrenders:CustomEntry x:Name="EntryUser" TextColor="Gray" FontSize="16" Margin="-4,0,0,0"/>
+                    </StackLayout>
+                </Frame>
+                <Frame Grid.Row="2" CornerRadius="15" Padding="10,10,10,-5" HasShadow="False">
+                    <StackLayout Spacing="-10">
+                        <Label Text="Contraseña"/>
+                        <customrenders:CustomEntry x:Name="EntryPassword" IsPassword="True" TextColor="Gray" FontSize="16" Margin="-4,0,0,0" />
+                    </StackLayout>
+                </Frame>
+                <StackLayout Grid.Row="3" Orientation="Horizontal">
+                    <CheckBox x:Name="ChkRemember" Color="Black"/>
+                    <Label Text="Recordar" VerticalOptions="Center"/>
+                    <Button Text="¿Olvidaste tu contraseña?" TextTransform="None" FontFamily="MainFontBold" FontSize="12" BackgroundColor="Transparent" HorizontalOptions="EndAndExpand"/>
+                </StackLayout>
+                <Grid Grid.Row="4">
+                    <Button x:Name="BtnLogin" Clicked="LoginClicked" ImageSource="ImportIconXS.png" ContentLayout="left,-64" TextTransform="None" FontFamily="MainFontRegular" Text="Ingresar" FontSize="20" HorizontalOptions="FillAndExpand" CornerRadius="10" BackgroundColor="Black" TextColor="White"/>
+                    <ActivityIndicator x:Name="LoadingIndicator" IsVisible="False" Opacity="1" IsRunning="True" Color="White" Scale="0.7"/>
+                </Grid>
+                <StackLayout Grid.Row="5" Spacing="-10" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Label Text="¿Todavia no tienes una cuenta?" VerticalOptions="Center" FontSize="14"/>
+                    <Button BackgroundColor="Transparent" Text="¡Create una!" Clicked="RegisterClicked" FontFamily="MainFontBold" FontSize="14" TextTransform="None" VerticalOptions="Center"/>
+                </StackLayout>
+            </Grid>
+        </Pancake:PancakeView>
+        <Pancake:PancakeView TranslationY="110" Grid.Row="1" x:Name="ErrorBox" Padding="10" CornerRadius="20" BackgroundColor="Black" Border="{Pancake:BorderMarkup Color=#f44336, Thickness='4', DashPattern='5'}" VerticalOptions="End" Margin="10">
+            <Grid RowDefinitions="auto, auto" ColumnDefinitions="auto, auto" Margin="5" ColumnSpacing="10">
+                <Image Source="ErrorIcon2.png" Aspect="AspectFit" WidthRequest="40"/>
+                <Label Text="Ha ocurrido un error" Grid.Column="1" FontSize="20" VerticalOptions="Center" FontFamily="MainFontBold" TextColor="#f44336"/>
+                <Label Grid.Row="1" Grid.ColumnSpan="3" x:Name="ErrorMsg" FontSize="16" TextColor="White" Margin="5,0"/>
+            </Grid>
+        </Pancake:PancakeView>
+    </Grid>
+
 </ContentPage>

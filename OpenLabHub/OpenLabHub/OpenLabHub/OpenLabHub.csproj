@@ -16,10 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="CustomRenders\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <EmbeddedResource Update="Views\LoginRegisterPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
