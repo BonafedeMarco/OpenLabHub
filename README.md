@@ -15,14 +15,14 @@ The API is designed to interact with a relational database through Hibernate usi
 The API provides the following endpoints for managing projects and users:
 
 ### Projects
-- **GET /projects**: Retrieve a list of all projects.
-- **GET /projects/{id}**: Retrieve a specific project by its unique identifier.
-- **POST /projects**: Create a new project, including its associated tags.
+- **GET /project/projects**: Retrieve a list of all projects.
+- **GET /project/{id}**: Retrieve a specific project by its unique identifier.
+- **POST /project/create/{userId}**: Create a new project, including its associated tags.
 
 ### Users
-- **GET /users**: Retrieve a list of all users.
-- **GET /users/{id}**: Retrieve a specific user by their unique identifier.
-- **POST /users**: Create a new user.
+- **GET /user/users**: Retrieve a list of all users.
+- **GET /user/{id}**: Retrieve a specific user by their unique identifier.
+- **POST /user/create**: Create a new user.
 
 Please note that the API is not exhaustive and does not include all possible endpoints. Only the endpoints listed above are implemented due to time constraints.
 
