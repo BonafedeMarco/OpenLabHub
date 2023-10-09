@@ -1,5 +1,5 @@
 # OpenLabHub
-Submission for the NASA Space Apps Challenge 2023
+Submission for the NASA Space Apps Challenge 2023, a hackathon running from Oct. 7th to Oct. 8th.
 
 # Challenge
 [A Marketplace for Open Science Projects](https://www.spaceappschallenge.org/2023/challenges/a-marketplace-for-open-science-projects/)
